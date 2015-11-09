@@ -1,26 +1,33 @@
 Rails.application.routes.draw do
-  resources	:static_pages
-  get 'static_pages/home'
+  scope "(:locale)", :locale => /en/ do
 
-  get 'pricing'        => 'static_pages#pricing'
+    root 'static_pages#home'
+    get 'static_pages/home'
 
-  get 'faq'            => 'static_pages#faq'
+    get 'pricing'        => 'static_pages#pricing'
 
-  get 'blog'           => 'static_pages#blog'
+    get 'faq'            => 'static_pages#faq'
 
-  get 'translator'     => 'static_pages#translators'
+    get 'blog'           => 'static_pages#blog'
 
-  get 'privacy_policy' =>'static_pages#privacy_policy'
+    get 'translator'     => 'static_pages#translators'
 
-  get 'contact'        => 'static_pages#contact'
+    get 'privacy_policy' =>'static_pages#privacy_policy'
 
+    get 'contact'        => 'static_pages#contact'
+
+    get 'signup'         => 'users#new'
+    resources :users
+    resources	:static_pages
+
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'static_pages#home'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

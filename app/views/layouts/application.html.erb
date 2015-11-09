@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fels_85</title>
+  <title><%= t :title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,6 +10,10 @@
 
 <%= render 'layouts/header' %>
 <div class="container">
+  <div id="nav">
+    Language:
+    <%= link_to_unless_current "English", locale: "en" %>
+  </div>
   <%= yield %>
   <%= render 'layouts/footer'%>
 </div>

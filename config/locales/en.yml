@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello:     "Hello world"
+  title:     "fels_85"
+  fels:      " Framgia E-Learning System"
+  sub_title: "Learning Portal"
+  add_text: "Sign Up"
