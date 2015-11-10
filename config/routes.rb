@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  scope "(:locale)", :locale => /en/ do
+  scope '(:locale)', :locale => /en/ do
     root 'static_pages#home'
     get 'static_pages/home'
     get 'pricing'        => 'static_pages#pricing'
@@ -14,10 +14,16 @@ Rails.application.routes.draw do
     get 'login'          => 'sessions#new'
     post 'login'         => 'sessions#create'
     delete 'logout'      => 'sessions#destroy'
-    resources :users
+     resources :users
     resources	:static_pages
 
+    namespace :admin do
+      resources :users
+    end
+
   end
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
