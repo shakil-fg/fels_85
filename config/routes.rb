@@ -1,22 +1,19 @@
 Rails.application.routes.draw do
-  scope "(:locale)", :locale => /en/ do
+  get 'sessions/new'
 
+  scope "(:locale)", :locale => /en/ do
     root 'static_pages#home'
     get 'static_pages/home'
-
     get 'pricing'        => 'static_pages#pricing'
-
     get 'faq'            => 'static_pages#faq'
-
     get 'blog'           => 'static_pages#blog'
-
     get 'translator'     => 'static_pages#translators'
-
     get 'privacy_policy' =>'static_pages#privacy_policy'
-
     get 'contact'        => 'static_pages#contact'
-
     get 'signup'         => 'users#new'
+    get 'login'          => 'sessions#new'
+    post 'login'         => 'sessions#create'
+    delete 'logout'      => 'sessions#destroy'
     resources :users
     resources	:static_pages
 
