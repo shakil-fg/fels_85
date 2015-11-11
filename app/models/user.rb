@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
       uniqueness: true
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -36,6 +36,6 @@ class User < ActiveRecord::Base
 
   private
   def user_params
-    params.require('user').permit('rememeber_digest')
+    params.require(:user).permit('rememeber_digest')
   end
 end
