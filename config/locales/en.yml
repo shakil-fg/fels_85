@@ -63,3 +63,7 @@ en:
   submit:         "Submit"
   there_are:      "There are"
   error:          "error"
+  following:      "Following"
+  follower:       "Followers"
+  follow:         "Follow"
+  unfollow:       "Unfollow"
