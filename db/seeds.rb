@@ -45,3 +45,11 @@ end
 @lsn.words << [Word.find(1), Word.find(2)]
 @lsn.word_answers << [@lsn.words.first.word_answers.find_by(content: "Tool_to_read")]
 @lsn.word_answers << [@lsn.words.second.word_answers.find_by(content: "Sense_of_vision")]
+
+# Following relationships
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
