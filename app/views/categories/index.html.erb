@@ -3,20 +3,20 @@
 <ul class="category">
   <div>
     <% @categories.each do |category| %>
-    <%= category.name %>
-    <div>
-      <% category.words.each do |word|%>
-        <%= word.content%>
-      <% end %>
-    </div>
-    <div>
-      <%= form_tag({controller: :lessons, action: :create}, method: :post) do %>
+      <%= category.name %>
       <div>
-        <%= hidden_field_tag(:category_id, category.id) %>
-        <%= submit_tag "Start lesson", class: "btn btn-primary" %>
+        <% category.words.each do |word|%>
+            <%= word.content%>
+        <% end %>
       </div>
-      <% end %>
-    </div>
+      <div>
+        <%= form_tag({controller: :lessons, action: :create}, method: :post) do %>
+            <div>
+              <%= hidden_field_tag(:category_id, category.id) %>
+              <%= submit_tag "Start lesson", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </ul>

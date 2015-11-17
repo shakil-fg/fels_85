@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  resources :words, only:[:index]
-  resources :lessons
-
-  get 'sessions/new'
 
   scope '(:locale)', :locale => /en/ do
     root 'static_pages#home'
@@ -18,8 +14,13 @@ Rails.application.routes.draw do
     post 'login'         => 'sessions#create'
     delete 'logout'      => 'sessions#destroy'
 
-    resources :lessons, only: [:create, :new, :show]
-    resources :categories, only: [:index]
+    get 'sessions/new'
+
+    resources :words, only:[:index]
+
+    resources :lessons, only: [:create, :show, :edit, :update]
+    resources :categories, only: :index
+    resources :users
     resources	:static_pages
     resources :relationships, only: [:create, :destroy]
     resources :users do

@@ -63,4 +63,10 @@ en:
   lesson_start:   "Start Lesson"
   categories:     "Categories"
   lesson:         "Lessons"
-
+  question:       "Question"
+  of:             "of"
+  lesson_over_d:  "You have taken all the available lessons!"
+  result:         "Result"
+  lesson_updated: "You've successfully completed the lesson"
+  lesson_error:   "Something went wrong!"
+  category_complete: "You've completed all the words from this category!"
