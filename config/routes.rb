@@ -17,13 +17,16 @@ Rails.application.routes.draw do
     get 'login'          => 'sessions#new'
     post 'login'         => 'sessions#create'
     delete 'logout'      => 'sessions#destroy'
-    resources :users
+
+    resources :lessons, only: [:create, :new, :show]
+    resources :categories, only: [:index]
     resources	:static_pages
     resources :relationships, only: [:create, :destroy]
     resources :users do
       resources :followers, only: [:index, :show]
       resources :followings, only: [:index, :show]
     end
+
     namespace :admin do
       resources :users
     end
